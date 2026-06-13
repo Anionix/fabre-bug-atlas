@@ -1,39 +1,71 @@
 # ファーブル昆虫記 Bugs 図鑑
 
-A generic field guide for review bugs, public evidence, and agent operations.
+A public field guide for recurring review bugs, public evidence, and agent
+operations.
 
-This repository is the public core. It contains reusable runbooks, templates,
-and taxonomy entries that can be applied to any repository with pull requests,
-review comments, and local validation evidence.
+This repository turns repeated review failures into reusable patterns. It is
+for teams that want pull-request closeout, review replies, and agent handoffs
+to become safer and easier over time.
 
-## What This Is
+## Three-Line Model
 
-- A review-bug atlas for recurring PR failure patterns.
-- A public-evidence guide for keeping review text safe to publish.
-- A compact closeout workflow for successful validation and failed checks.
-- A set of templates that agents and humans can copy across repositories.
+```text
+bug atlas      = public recurrence patterns and reusable runbooks
+field log      = private observation notes kept outside this public repo
+consumer repo  = any project that copies or adapts these patterns
+```
 
-## What This Is Not
+## What Belongs Here
 
-- Not a private incident log.
-- Not a credential store.
-- Not tied to a specific repository, framework, provider, CI system, or agent.
-- Not a replacement for live review-thread readback.
+- Generic recurrence classes.
+- Public-safe review and closeout templates.
+- GitHub review-readback recipes with placeholders.
+- Redaction and public-evidence guidance.
+- Sanitized examples that work without a specific repository.
+
+## What Does Not Belong Here
+
+- Private incident notes.
+- Credential-shaped values or secrets.
+- Local machine paths, raw environment values, or raw logs.
+- Private repository links.
+- Repo-specific commands as mandatory steps.
 
 ## Start Here
 
-1. Read [`taxonomy/review-bug-classes.md`](taxonomy/review-bug-classes.md).
-2. Use [`runbooks/bug-triage.md`](runbooks/bug-triage.md) when a review bug appears.
-3. Use [`runbooks/review-readback.md`](runbooks/review-readback.md) before merge or closeout.
-4. Use [`runbooks/public-evidence.md`](runbooks/public-evidence.md) before publishing PR bodies or comments.
-5. Use [`templates/`](templates/) for compact public-safe replies.
+1. Choose a recurrence class in
+   [`taxonomy/review-bug-classes.md`](taxonomy/review-bug-classes.md).
+2. Follow [`runbooks/bug-triage.md`](runbooks/bug-triage.md) when a review bug
+   appears.
+3. Use [`runbooks/review-readback.md`](runbooks/review-readback.md) before
+   merge or closeout.
+4. Check public text with [`runbooks/public-evidence.md`](runbooks/public-evidence.md).
+5. Copy a compact reply from [`templates/`](templates/).
 
-## Public / Private Boundary
+## Where To Write Things
 
-Public guidance may name public pull requests, public issues, public commands,
-and sanitized recurrence classes. Do not publish local absolute paths,
-environment values, credential-shaped strings, private repository links, or raw
-internal logs.
+| Material | Put it here? | Where it should go |
+| --- | --- | --- |
+| Generic prevention pattern | Yes | taxonomy or runbook |
+| Generic fix-comment wording | Yes | templates |
+| Public GitHub readback recipe | Yes | examples or runbooks |
+| Repo-specific validation command | Usually no | consumer repo docs |
+| Private incident timeline | No | private field log |
+| Raw failed command log | No | private investigation note, after redaction |
+| Local path or environment value | No | do not store |
 
-Private observations should be stored in a separate private field-log
-repository and promoted here only after redaction.
+## Adoption
+
+Use this repo by copying small pieces, not by making a consuming project depend
+on it at runtime. Start with the templates, then add only the runbooks that fit
+your repository's review flow. See [`docs/adoption.md`](docs/adoption.md).
+
+## Public Safety
+
+Before opening an issue or PR here, remove local paths, private repository
+links, raw environment values, and credential-shaped strings. See
+[`docs/redaction.md`](docs/redaction.md).
+
+## License
+
+This project is licensed under the MIT License. See [`LICENSE`](LICENSE).
